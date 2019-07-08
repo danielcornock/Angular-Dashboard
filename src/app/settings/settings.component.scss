@@ -1,0 +1,85 @@
+.settings{
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &__icon{
+    cursor: pointer;
+    transition: 250ms;
+    margin-bottom: 20px;
+    transition: 2s;
+    &:hover{
+      color: rgba(white,0.6);
+      transform: rotate(359deg);
+    }
+    &--main{
+      color: white;
+      font-size: 60px;
+    }
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 40px 30px;
+  }
+
+  &__input{
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #eee;
+    border: none;
+    border-radius: 100px;
+  }
+
+  &__label{
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 12px;
+    margin-bottom: 3px;
+
+  }
+}
+
+.name{
+  font-size: 90px;
+}
+
+.settings__toggle{
+  background-color: #eee;
+  width: 40px;
+  height: 20px;
+  border-radius: 40px;
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 3px;
+
+
+  &-switch{
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    height: 14px;
+    width: 14px;
+    border-radius: 50px;
+    background-color: rgba(red,0.6);
+    transition: 250ms ease-out;
+
+    &--on{
+      background-color: rgba(green, 0.6);
+      left: 23px;
+    }
+  }
+
+
+  &-container{
+    display: flex;
+    align-items: center;
+  }
+}

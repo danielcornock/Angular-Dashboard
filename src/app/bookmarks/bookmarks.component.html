@@ -1,0 +1,17 @@
+<section class="bookmarks">
+  <a *ngFor = "let bookmark of bookmarks" href = "{{bookmark.url}}" class="bookmark bookmark--active">
+    <h2 class="bookmark__title">{{bookmark.name}}</h2>
+    <img src="{{bookmark.favicon}}" alt="" class="bookmark__img">
+  </a>
+  <div class="bookmark add-bookmark" (click) = "nowAdding()" (keyup.escape)="cancelAdd()">
+    <span *ngIf = "!adding" class="add-bookmark__icon">+</span>
+    <div *ngIf = "adding" class="add-bookmark__details">
+      <label class = "add-bookmark__input-label">WEBSITE NAME</label>
+      <input #bookmarkInput [(ngModel)] = "this.newBookmarkName" (keyup.enter) = "addBookmark()" class = "add-bookmark__input" type="text">
+      <label class = "add-bookmark__input-label">URL</label>
+      <input [(ngModel)] = "this.newBookmarkUrl" (keyup.enter) = "addBookmark()" class = "add-bookmark__input" type="text">
+      <label class = "add-bookmark__input-label">Image URL</label>
+      <input [(ngModel)] = "this.newImageUrl" (keyup.enter) = "addBookmark()" class = "add-bookmark__input" type="text">
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+.main{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-position: center;
+  background-size: cover;
+}
+
+.name{
+  color: white;
+  font-size: 60px;
+  &__input{
+    border-radius: 50px;
+    padding: 30px;
+    font-size: 40px;
+    border: none;
+    background-color: rgba(white,0.3);
+    text-align: center;
+
+    &:focus{
+      background-color: rgba(white,0.8);
+    }
+  }
+
+  &__title{
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: white;
+  }
+}
+
+.initial-popup{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+

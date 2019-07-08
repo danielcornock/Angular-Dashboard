@@ -1,0 +1,22 @@
+<div class="settings">
+  <i
+    class="settings__icon settings__icon--main fas fa-cog"
+    (click) = "toggleSettings()"></i>
+  <div class="settings__list" *ngIf = "settingsOpen">
+    <label class = "settings__label" for="">BACKGROUND IMAGE (URL)</label>
+    <input class = "settings__input" type="text"
+      [(ngModel)]="backgroundImage" (keyup.enter) = "changeBackground()">
+    <label class = "settings__label" for="">NAME</label>
+    <input class = "settings__input" type="text"
+      [(ngModel)] = "name" (keyup.enter) = "changeName()">
+    <div class="settings__toggle-container">
+      <label for="" class="settings__label">EDIT MODE</label>
+      <div class="settings__toggle" (click) = "toggleEdit()">
+        <div class="settings__toggle-switch" #switch [ngClass]="{'settings__toggle-switch--on' : editMode}"
+        >
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
