@@ -11,8 +11,10 @@
 
   <h1 class = "name"*ngIf = "nameEntered">Welcome, {{name}}</h1>
   <app-weather ></app-weather>
-  <app-bookmarks></app-bookmarks>
+  <app-bookmarks [editMode]="editingBookmarks"></app-bookmarks>
   <app-settings
     (backgroundImageEmit)="setBackground($event)"
-    (nameEmit)="changeName($event)"></app-settings>
+    (nameEmit)="changeName($event)"
+    (editModeEmit)="editMode($event)"></app-settings>
+
 </div>

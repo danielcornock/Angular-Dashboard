@@ -1,8 +1,31 @@
 <section class="bookmarks">
-  <a *ngFor = "let bookmark of bookmarks" href = "{{bookmark.url}}" class="bookmark bookmark--active">
-    <h2 class="bookmark__title">{{bookmark.name}}</h2>
-    <img src="{{bookmark.favicon}}" alt="" class="bookmark__img">
-  </a>
+  <div *ngFor = "let bookmark of bookmarks" class="bookmark bookmark--active">
+    <div *ngIf = "!bookmark.editing">
+      <h2 class="bookmark__title"><a href="{{bookmark.url}}">{{bookmark.name}}</a></h2>
+      <a href="{{bookmark.url}}"><img src="{{bookmark.favicon}}" alt="" class="bookmark__img"></a>
+      <div *ngIf = "editMode">
+        <i
+          (click) = "deleteBookmark(bookmark.id)"
+          class="bookmark__icon bookmark__delete fas fa-trash-alt"></i>
+        <i
+          (click) = "editBookmark(bookmark.id)"
+          class="bookmark__icon bookmark__edit fas fa-pencil-alt"></i>
+      </div>
+    </div>
+    <div
+      *ngIf = "bookmark.editing"
+      class="add-bookmark__details"
+      (keyup.escape) = "bookmark.editing = false"
+      (keyup.enter) = "bookmark.editing = false"
+    >
+      <label class = "add-bookmark__input-label">WEBSITE NAME</label>
+      <input #bookmarkInput [(ngModel)] = "bookmark.name" class = "add-bookmark__input" type="text">
+      <label class = "add-bookmark__input-label">URL</label>
+      <input [(ngModel)] = "bookmark.url" class = "add-bookmark__input" type="text">
+      <label class = "add-bookmark__input-label">Image URL</label>
+      <input [(ngModel)] = "bookmark.favicon" class = "add-bookmark__input" type="text">
+    </div>
+  </div>
   <div class="bookmark add-bookmark" (click) = "nowAdding()" (keyup.escape)="cancelAdd()">
     <span *ngIf = "!adding" class="add-bookmark__icon">+</span>
     <div *ngIf = "adding" class="add-bookmark__details">

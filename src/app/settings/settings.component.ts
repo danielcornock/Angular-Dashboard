@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit {
   @Output() nameEmit = new EventEmitter<string>();
   name: string;
 
-  @Output() editModeEmit = new EventEmitter<boolean>()
+  @Output() editModeEmit = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -25,6 +25,7 @@ export class SettingsComponent implements OnInit {
 
   toggleEdit(): void {
     this.editMode = !this.editMode;
+    this.editModeEmit.emit(this.editMode);
   }
 
   toggleSettings(): void {

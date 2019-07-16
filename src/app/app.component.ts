@@ -12,9 +12,9 @@ export class AppComponent implements OnInit {
 
   name: string;
   public nameEntered = false;
+  editingBookmarks: boolean;
 
   ngOnInit(): void {
-    console.log(this.main);
   }
 
   setName(): void {
@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
 
   changeName(name: string): void {
     this.name = name;
+  }
+
+  editMode(event: boolean): void {
+    this.editingBookmarks = event;
   }
 
 

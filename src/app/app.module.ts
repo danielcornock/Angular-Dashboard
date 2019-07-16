@@ -8,6 +8,7 @@ import { WeatherComponent } from './weather/weather.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { SettingsComponent } from './settings/settings.component';
+import { WeatherService } from './weather.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { SettingsComponent } from './settings/settings.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

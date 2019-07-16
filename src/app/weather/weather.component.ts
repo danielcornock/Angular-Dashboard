@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -9,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherComponent implements OnInit {
   private latitude: number;
   private longitude: number;
-  constructor() { }
+  constructor(
+    private weatherService: WeatherService
+  ) { }
 
   ngOnInit() {
     this.fetchWeather();
@@ -17,13 +20,9 @@ export class WeatherComponent implements OnInit {
 
   fetchWeather() {
     // longitude: number;
-    if (!navigator.geolocation) {
-      console.log('Navigator not active');
-    } else {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-      });
-    }
+
+    this.weatherService
+      .getWeather()
+      .subscribe(data => console.log(data));
   }
 }
