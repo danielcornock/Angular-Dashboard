@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 export class WeatherService {
 
   private proxy = 'https://cors-anywhere.herokuapp.com/'
-  private apiUrl = 'https://api.darksky.net/forecast/5389175401cca0f21832cc7e70ee4da0/37.8267,-122.4233';
+  private apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139';
   private longitude;
   private latitude;
 
@@ -23,9 +23,9 @@ export class WeatherService {
       console.log('Navigator not active');
     } else {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.amendedUrl = `${this.proxy}${this.apiUrl}${this.latitude},${this.longitude}`;
+        this.latitude = (position.coords.latitude);
+        this.longitude = (position.coords.longitude);
+        this.amendedUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&APPID=aaa479e6c8056b91e667e8745fe6942e`;
         console.log(this.amendedUrl);
       });
     }

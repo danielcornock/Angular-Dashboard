@@ -10,6 +10,10 @@ import { WeatherService } from '../weather.service';
 export class WeatherComponent implements OnInit {
   private latitude: number;
   private longitude: number;
+
+  public temperature: number;
+  public location: string;
+  public weather: string;
   constructor(
     private weatherService: WeatherService
   ) { }
@@ -21,8 +25,11 @@ export class WeatherComponent implements OnInit {
   fetchWeather() {
     // longitude: number;
 
-    this.weatherService
-      .getWeather()
-      .subscribe(data => console.log(data));
+    this.weatherService.getWeather().subscribe(data => {
+        console.log(data);
+        this.temperature = Math.floor(data.main.temp-273.15);
+        this.location = data.name;
+        this.weather = data.weather[0].main;
+    });
   }
 }

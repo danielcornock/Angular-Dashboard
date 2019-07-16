@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-image: url('https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1662&q=80');
   background-position: center;
   background-size: cover;
 }
@@ -20,6 +20,7 @@
     border: none;
     background-color: rgba(white,0.3);
     text-align: center;
+    margin-bottom: 40px;
 
     &:focus{
       background-color: rgba(white,0.8);
@@ -29,7 +30,7 @@
   &__title{
     text-align: center;
     font-size: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: white;
   }
 }
